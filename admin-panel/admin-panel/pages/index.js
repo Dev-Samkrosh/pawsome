@@ -1,22 +1,32 @@
-import { useSession, signIn, signOut } from "next-auth/react" // Importamos los metodos para la autenticación OAuth
+import Layout from "@/components/layout";
+import { useSession } from "next-auth/react";
 
+export default function Inicio() {
+  const {data : session} = useSession()
 
-// Función Home, para la creación de la pantalla de inicio de sesión del panel de administrador.
-
-export default function Home() {
-  const { data: session } = useSession() // Pedimos los datos para el inicio de sesión OAuth
   
-  // En caso de no haber inicio de sesión, se muestra la pantalla de inicio de sesión
-  if (!session) {
-    return (
-      <div className = 'bg-blue-900 w-screen h-screen flex items-center'> 
-        <div className = 'text-center w-full'>
-          <button onClick={ () => signIn('google')} className = 'bg-white p-2 px-4 rounded-lg'>Ingresa con Google</button>
-        </div>
+  return <Layout>
+    <div className="text-blue-900 flex justify-between">
+      <h2>
+        Hola, <b>{session?.user?.name}</b>
+      </h2>
+
+      <div className="flex bg-gray-300 gap-1 text-black rounded-lg overflow-hidden">
+        <img src={session?.user?.image} alt="" className="w-6 h-6"/>
+        
+        <span className="px-2">
+          {session?.user?.name}
+        </span>
+        
       </div>
-    )
-  }
-  return (
-    <div>Se inició la sesión como {session.user.email}</div>
-  )
+      
+    </div>
+
+
+
+
+
+
+
+  </Layout>
 }
