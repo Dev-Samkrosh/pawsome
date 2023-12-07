@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function FormularioProducto({
         _id,
         nombre:nombreExistente,
-        descripcio:descripcionExistente,
+        descripcion:descripcionExistente,
         precio:precioExistente,
     
     }) {
