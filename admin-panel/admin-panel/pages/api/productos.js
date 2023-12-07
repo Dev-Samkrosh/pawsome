@@ -25,7 +25,7 @@ export default async function handle(req, res) {
 
     if (method === 'PUT') {
       const {nombre,descripcion,precio,_id} = req.body;
-      await Producto.updateOne({_id},{nombre,descripcion,precio}); //AxiosError: Request failed with status code 404
+      await Producto.updateOne({_id},{nombre,descripcion,precio}); //Ya funciona
       res.json(true);
     }
 }
