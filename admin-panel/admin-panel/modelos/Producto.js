@@ -2,7 +2,7 @@ import {model, Schema, models} from "mongoose";
 
 const productoSchema = new Schema({
     nombre: {type: String, required:true},
-    descripcion: String,
+    descripcion: {type: String, default: ' '},
     precio: {type: Number, required:true}
 })
 

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function FormularioProducto({
+        _id,
         nombre:nombreExistente,
         descripcio:descripcionExistente,
         precio:precioExistente,
@@ -13,10 +14,19 @@ export default function FormularioProducto({
     const [precio,setPrecio] = useState(precioExistente || '');
     const [irAProductos, setIrAProductos] = useState(false);
     const router = useRouter();
-    async function crearProducto(ev) {
+
+    async function guardarProducto(ev) {
         ev.preventDefault();
         const data = {nombre,descripcion,precio};
-        await axios.post('/api/productos',data);
+        if (_id) {
+            //actualizar
+            await axios.put('/api/productos', {...data,_id});
+        
+        } else {
+            //create
+            await axios.post('/api/productos',data);
+        
+        }
         setIrAProductos(true);
     }
 
@@ -25,7 +35,7 @@ export default function FormularioProducto({
     }
 
     return (
-            <form onSubmit={crearProducto}>
+            <form onSubmit={guardarProducto}>
 
                 <label>Nombre del producto</label>
                 <input type="text" 
