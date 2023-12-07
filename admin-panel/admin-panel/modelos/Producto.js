@@ -6,4 +6,4 @@ const productoSchema = new Schema({
     precio: {type: Number, required:true}
 })
 
-export const Producto = models.Producto || mongoose.model('Producto', productoSchemaSchema);
+export const Producto = models.Producto || model('Producto',productoSchema);
