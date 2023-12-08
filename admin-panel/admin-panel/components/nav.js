@@ -1,18 +1,20 @@
-import Link from "next/link";
-import {useRouter} from "next/router";
-import {signOut} from "next-auth/react";
-import Logo from "@/components/Logo";
+import Link from "next/link"; // Importación del componente Link de Next.js para enlaces internos
+import { useRouter } from "next/router"; // Importación del hook useRouter para acceder a la ruta actual
+import { signOut } from "next-auth/react"; // Importación de la función signOut de NextAuth para cerrar sesión
+import Logo from "@/components/Logo"; // Importación del componente Logo
 
-export default function Nav({show}) {
-  const inactiveLink = 'flex gap-1 p-1';
-  const activeLink = inactiveLink+' bg-highlight text-black rounded-sm';
-  const inactiveIcon = 'w-6 h-6';
-  const activeIcon = inactiveIcon + ' text-primary';
-  const router = useRouter();
-  const {pathname} = router;
+export default function Nav({ show }) {
+  const inactiveLink = 'flex gap-1 p-1'; // Clases para enlaces inactivos
+  const activeLink = inactiveLink + ' bg-highlight text-black rounded-sm'; // Clases para enlaces activos
+  const inactiveIcon = 'w-6 h-6'; // Clases para íconos inactivos
+  const activeIcon = inactiveIcon + ' text-primary'; // Clases para íconos activos
+  const router = useRouter(); // Instancia del hook useRouter para acceder a la ruta actual
+  const { pathname } = router; // Obtención de la ruta actual desde useRouter
+  
+  // Función para cerrar sesión
   async function logout() {
-    await router.push('/');
-    await signOut();
+    await router.push('/'); // Redirige a la ruta raíz '/'
+    await signOut(); // Cierra la sesión del usuario
   }
   return (
     <aside className={(show?'left-0':'-left-full')+" top-0 text-white p-4 fixed w-full bg-blue-900 h-full md:static md:w-auto transition-all"}>
