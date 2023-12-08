@@ -28,7 +28,7 @@ table.basic {
 }
 
 table.basic tr td{
-    @apply border border-blue-200 p-1;
+    @apply px-4 py-1;
 }
 
 table.basic thead tr td{
@@ -36,17 +36,17 @@ table.basic thead tr td{
 }
 
 table.basic a {
-    @apply bg-blue-900 text-white text-sm py-1 px-2 rounded-md inline-flex gap-1 mr-1;
+    @apply px-4 rounded-sm inline-flex mx-1 items-center gap-1 text-sm py-1;
 }
 
 .btn-rojo {
-    @apply bg-red-800 text-white;
+    @apply bg-red-200 text-red-600 px-4 py-1 rounded-sm shadow-sm;
 }
 
 .btn-default {
-    @apply bg-gray-500 text-white;
+    @apply bg-white text-gray-800 px-4 py-1 rounded-sm border border-gray-200 shadow-sm;
 }
 
 .btn-default, .btn-rojo {
-    @apply px-4 py-1 rounded-lg;
+    @apply px-4 py-1 rounded-md;
 }

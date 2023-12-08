@@ -44,5 +44,5 @@ export default function Productos() {
                 ))}
             </tbody>
         </table>
-        </Layout>)
+    </Layout>)
 }

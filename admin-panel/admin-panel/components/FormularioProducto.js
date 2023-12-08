@@ -7,6 +7,7 @@ export default function FormularioProducto({
         nombre:nombreExistente,
         descripcion:descripcionExistente,
         precio:precioExistente,
+        imagenes,
     
     }) {
     const [nombre,setNombre] = useState(nombreExistente || '');
@@ -17,13 +18,13 @@ export default function FormularioProducto({
 
     async function guardarProducto(ev) {
         ev.preventDefault();
-        const data = {nombre,descripcion,precio};
+        const data = {nombre,descripcion,precio,imagenes};
         if (_id) {
             //actualizar
             await axios.put('/api/productos', {...data,_id});
         
         } else {
-            //create
+            //crear
             await axios.post('/api/productos',data);
         
         }
@@ -34,6 +35,18 @@ export default function FormularioProducto({
         router.push('/productos');
     }
 
+    async function cargarImagenes(ev) {
+        const files = ev.target?.files;
+        if (files?.length > 0) {
+            const data = new FormData();
+            for (const file of files) {
+                data.append('file',file);
+            }
+            const res = await axios.post('/api/cargar', data)
+            console.log(res.data);
+        }
+    }
+
     return (
             <form onSubmit={guardarProducto}>
 
@@ -42,6 +55,22 @@ export default function FormularioProducto({
                 placeholder="Nombre del producto" 
                 value={nombre} 
                 onChange={ev => setNombre(ev.target.value)}/>
+
+                <label>Imagenes</label>
+                <div className="mb-2">
+                    <label className="w-24 h-24 border flex items-center justify-center flex-col text-sm gap-1 text-gray-400 rounded-lg bg-gray-200 cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                        </svg>
+                        <div>
+                            Cargar
+                        </div>
+                        <input type="file" className="hidden" onChange={cargarImagenes}/>
+                    </label>
+                    {!imagenes?.length && (
+                        <div>Este producto no tiene fotos</div>
+                    )}
+                </div>
 
                 <label>Descripción</label>
                 <textarea 
