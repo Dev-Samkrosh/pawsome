@@ -21,7 +21,7 @@ export default function Layout({ children }) {
   // Si hay sesión, se muestra la estructura del layout con la barra de navegación y el contenido
   return (
     <div className="bg-bgGray min-h-screen">
-      <div className="block md:hidden flex items-center p-4">
+      <div className="md:hidden flex items-center p-4">
         {/* Botón para mostrar la navegación en pantallas pequeñas */}
         <button onClick={() => setShowNav(true)}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
