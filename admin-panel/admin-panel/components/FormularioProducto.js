@@ -7,15 +7,24 @@ export default function FormularioProducto({
         nombre:nombreExistente,
         descripcion:descripcionExistente,
         precio:precioExistente,
-        imagenes,
+        imagenes:imagenesExistente,
+        categoria:categoriaExistente,
+        propiedades:propiedadesExistente,
     
     }) {
     // Estado local para manejar el formulario
     const [nombre,setNombre] = useState(nombreExistente || '');
     const [descripcion,setDescripcion] = useState(descripcionExistente || '');
     const [precio,setPrecio] = useState(precioExistente || '');
+    const [imagenes,setImagenes] = useState(imagenesExistente || '');
+    const [categoria,setCategoria] = useState(categoriaExistente || '');
+    const [propiedades,setPropiedades] = useState(propiedadesExistente || '');
     const [irAProductos, setIrAProductos] = useState(false);
+    const [estaCargando, setEstaCargando] = useState(false);
+    const [categorias,setCategorias] = useState([]);
     const router = useRouter();
+
+    // Acá vamos actualizando
 
     // Función para guardar o actualizar el producto
     async function guardarProducto(ev) {
