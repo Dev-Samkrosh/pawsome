@@ -6,8 +6,8 @@ const productoSchema = new Schema({
     descripcion: { type: String }, // Descripción del producto
     precio: { type: Number, required: true }, // Precio del producto (obligatorio)
     imagenes: [{ type: String }], // Lista de URLs de imágenes del producto
-    categoria: { type: mongoose.Types.ObjectId, ref: 'Category' }, // Referencia a la categoría del producto
-    propiedades: { type: Object }, // Otras propiedades del producto en un objeto
+    // categoria: { type: mongoose.Types.ObjectId, ref: 'Category' }, // Referencia a la categoría del producto
+    // propiedades: { type: Object }, // Otras propiedades del producto en un objeto
 }, {
     timestamps: true, // Se incluyen campos de tiempo de creación y actualización automáticamente
 });

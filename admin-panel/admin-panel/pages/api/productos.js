@@ -18,22 +18,20 @@ export default async function handle(req, res) {
 
     if (method === 'POST') {
         // Crear un nuevo producto con los datos del cuerpo de la solicitud
-        const { nombre, descripcion, precio, imagenes, categoria, propiedades } = req.body;
+        const { nombre, descripcion, precio, imagenes } = req.body;
         const productoDoc = await Producto.create({
             nombre,
             descripcion,
             precio,
-            imagenes,
-            categoria,
-            propiedades
+            imagenes
         });
         res.json(productoDoc);
     }
 
     if (method === 'PUT') {
         // Actualizar un producto por su ID con los datos del cuerpo de la solicitud
-        const { nombre, descripcion, precio, imagenes, categoria, propiedades, _id } = req.body;
-        await Producto.updateOne({ _id }, { nombre, descripcion, precio, imagenes, categoria, propiedades }); // Actualización del producto
+        const { nombre, descripcion, precio, imagenes, _id } = req.body;
+        await Producto.updateOne({ _id }, { nombre, descripcion, precio, imagenes }); // Actualización del producto
         res.json(true); // Se responde con 'true' para indicar éxito
     }
 
