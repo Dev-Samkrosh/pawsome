@@ -7,9 +7,10 @@ export default async function handle(req, res) {
     await mongooseConnect(); // Conexión a la base de datos MongoDB
 
     if (method === 'GET') {
-        if (req.query?.id) {
+        if (req.body.id) {
+            
             // Obtener un producto por su ID
-            res.json(await Producto.findOne({ _id: req.query.id }));
+            res.json(await Producto.findOne({ _id }));
         } else {
             // Obtener todos los productos
             res.json(await Producto.find());
@@ -37,9 +38,9 @@ export default async function handle(req, res) {
 
     if (method === 'DELETE') {
         // Eliminar un producto por su ID
-        if (req.query?.id) {
-            await Producto.deleteOne({ _id: req.query?.id });
-            res.json(true); // Se responde con 'true' para indicar éxito
-        }
+        const {_id} = req.body;
+        await Producto.deleteOne({ _id});
+        res.json(true); // Se responde con 'true' para indicar éxito
+        
     }
 }
