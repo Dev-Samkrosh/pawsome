@@ -79,7 +79,7 @@ export default function Featured({product}) {
             </div>
           </Column>
           <Column>
-            <img src="https://pawsome.s3.amazonaws.com/1715049357195.png" alt=""/>
+            <img src="https://drive.google.com/thumbnail?id=1dzIkTeEYQF1XIcZw87ROl8c2NHgzFeML" alt="Pelotas para perro"/>
           </Column>
         </ColumnsWrapper>
       </Center>

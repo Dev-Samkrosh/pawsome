@@ -90,7 +90,7 @@ export default function Header() {
           <StyledNav mobileNavActive={mobileNavActive}>
             <NavLink href={'/'}>Inicio</NavLink>
             <NavLink href={'/products'}>Todos los productos</NavLink>
-            <NavLink href={'/cart'}>Carrito ({cartProducts.length})</NavLink>
+            <NavLink href={'/cart'}>Carrito ({cartProducts.length-1})</NavLink>
           </StyledNav>
           <NavButton onClick={() => setMobileNavActive(prev => !prev)}>
             <BarsIcon />
