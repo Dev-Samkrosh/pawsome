@@ -62,6 +62,20 @@ const NavButton = styled.button`
   }
 `;
 
+const ImageContainer = styled.div`
+  color:#fff;
+  text-decoration:none;
+  position: relative;
+  z-index: 3;
+  top: 0px; /* Ajusta la distancia del borde superior */
+  left: 0px; /* Ajusta la distancia del borde izquierdo */
+`;
+
+const LogoImage = styled.img`
+  width: 100%; /* Ajusta el tamaño de la imagen según tus preferencias */
+`;
+
+
 export default function Header() {
   const {cartProducts} = useContext(CartContext);
   const [mobileNavActive,setMobileNavActive] = useState(false);
@@ -69,7 +83,10 @@ export default function Header() {
     <StyledHeader>
       <Center>
         <Wrapper>
-          <Logo href={'/'}>Pawsome</Logo>
+        <ImageContainer>
+            <LogoImage src="https://drive.google.com/thumbnail?id=1hqBKrc6ggoNL-bxeW9Qjs7Gcu2gqV-OE" alt="Pawsome Logo"/>
+          </ImageContainer>
+          
           <StyledNav mobileNavActive={mobileNavActive}>
             <NavLink href={'/'}>Inicio</NavLink>
             <NavLink href={'/products'}>Todos los productos</NavLink>
