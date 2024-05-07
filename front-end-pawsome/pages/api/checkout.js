@@ -26,9 +26,9 @@ export default async function handler(req,res) {
       line_items.push({
         quantity,
         price_data: {
-          currency: 'USD',
+          currency: 'COP',
           product_data: {name:productInfo.title},
-          unit_amount: quantity * productInfo.price * 100,
+          unit_amount: quantity * productInfo.price * 100, //Acá se modifica el hijueputa precio, cuando se toman dos del mismo producto o más, se multiplica el total por el número de productos
         },
       });
     }

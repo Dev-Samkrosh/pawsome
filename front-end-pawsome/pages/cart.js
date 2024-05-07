@@ -124,7 +124,7 @@ export default function CartPage() {
           <ColumnsWrapper>
             <Box>
               <h1>Gracias por tu orden!</h1>
-              <p>Te enviaremos un correo cuando tu orden se envíe.</p>
+              <p>Te enviaremos un correo cuando esté lista.</p>
             </Box>
           </ColumnsWrapper>
         </Center>
