@@ -123,8 +123,8 @@ export default function CartPage() {
         <Center>
           <ColumnsWrapper>
             <Box>
-              <h1>Thanks for your order!</h1>
-              <p>We will email you when your order will be sent.</p>
+              <h1>Gracias por tu orden!</h1>
+              <p>Te enviaremos un correo cuando tu orden se envíe.</p>
             </Box>
           </ColumnsWrapper>
         </Center>
@@ -137,17 +137,17 @@ export default function CartPage() {
       <Center>
         <ColumnsWrapper>
           <Box>
-            <h2>Cart</h2>
+            <h2>Carrito</h2>
             {!cartProducts?.length && (
-              <div>Your cart is empty</div>
+              <div>Tu carrito está vacío.</div>
             )}
             {products?.length > 0 && (
               <Table>
                 <thead>
                   <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -184,9 +184,9 @@ export default function CartPage() {
           </Box>
           {!!cartProducts?.length && (
             <Box>
-              <h2>Order information</h2>
+              <h2>Información de la orden</h2>
               <Input type="text"
-                     placeholder="Name"
+                     placeholder="Nombre"
                      value={name}
                      name="name"
                      onChange={ev => setName(ev.target.value)} />
@@ -197,29 +197,29 @@ export default function CartPage() {
                      onChange={ev => setEmail(ev.target.value)}/>
               <CityHolder>
                 <Input type="text"
-                       placeholder="City"
+                       placeholder="Ciudad"
                        value={city}
                        name="city"
                        onChange={ev => setCity(ev.target.value)}/>
                 <Input type="text"
-                       placeholder="Postal Code"
+                       placeholder="Código Postal"
                        value={postalCode}
                        name="postalCode"
                        onChange={ev => setPostalCode(ev.target.value)}/>
               </CityHolder>
               <Input type="text"
-                     placeholder="Street Address"
+                     placeholder="Dirección"
                      value={streetAddress}
                      name="streetAddress"
                      onChange={ev => setStreetAddress(ev.target.value)}/>
               <Input type="text"
-                     placeholder="Country"
+                     placeholder="País"
                      value={country}
                      name="country"
                      onChange={ev => setCountry(ev.target.value)}/>
               <Button black block
                       onClick={goToPayment}>
-                Continue to payment
+                Continúa al pago
               </Button>
             </Box>
           )}

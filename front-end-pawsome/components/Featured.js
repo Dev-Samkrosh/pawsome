@@ -70,10 +70,10 @@ export default function Featured({product}) {
               <Title>{product.title}</Title>
               <Desc>{product.description}</Desc>
               <ButtonsWrapper>
-                <ButtonLink href={'/product/'+product._id} outline={1} white={1}>Read more</ButtonLink>
+                <ButtonLink href={'/product/'+product._id} outline={1} white={1}>Leer más</ButtonLink>
                 <Button white onClick={addFeaturedToCart}>
                   <CartIcon />
-                  Add to cart
+                  Añadir al carrito
                 </Button>
               </ButtonsWrapper>
             </div>
